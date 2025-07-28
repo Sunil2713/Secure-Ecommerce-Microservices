@@ -70,14 +70,13 @@ Frontend (React) → NGINX Gateway → Microservices
 
 ## Contributors
 
+- [@Suhas-30](https://github.com/Suhas-30)
 - [@Sushant-Khot](https://github.com/Sushant-Khot)
-- [@Sunil2713](https://github.com/Sunil2713) 
 - [@keerthanasoms](https://github.com/keerthanasoms)
 
 ## Contact
 
-**GitHub**: [@Sushant-Khot](https://github.com/Sunil2713)
+**GitHub**: [@Sunil2713](https://github.com/Sunil2713) 
 
----
 
 
