@@ -1,87 +1,84 @@
-# 🛒 Secure E-Commerce Microservices
+# Secure E-Commerce Microservices
 
-A comprehensive e-commerce platform built with microservices architecture and ML-powered security features.
+> A modern e-commerce platform with AI-powered security and microservices architecture
 
-## ✨ Features
+## Overview
 
-- **🔐 Secure Authentication** - JWT-based user management
-- **🤖 ML Security** - BERT-based NoSQL injection detection
-- **🛡️ Threat Filtering** - Real-time malicious payload blocking
-- **📦 Product Management** - Complete product catalog system
-- **🛒 Order Processing** - Cart and checkout functionality
-- **🐳 Docker Ready** - Containerized microservices
-- **⚡ Redis Caching** - High-performance session storage
+This project demonstrates a complete e-commerce solution built with microservices, featuring advanced ML-based security to protect against NoSQL injection attacks. The architecture is designed for scalability, security, and maintainability.
 
-## 🚀 Quick Start
+## Key Features
 
-### Prerequisites
-- Node.js & npm
-- Docker & Docker Compose
+- **AI Security**: BERT-based NoSQL injection detection
+- **Microservices**: Scalable, independent service architecture
+- **Real-time Protection**: Automatic threat filtering and blocking
+- **Modern Stack**: React frontend with Node.js/Express backend
+- **Containerized**: Docker-ready for easy deployment
 
-### Frontend
+## Quick Start
+
 ```bash
-cd frontend
-npm install
-npm run dev
-```
+# Frontend
+cd frontend && npm install && npm run dev
 
-### Backend Services
-```bash
+# Backend (requires Docker)
 docker-compose up --build
 ```
 
-## 🏗️ Architecture
+## Architecture
 
 ```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   React Frontend│    │   NGINX Gateway │    │   Microservices │
-│                 │◄──►│                 │◄──►│                 │
-│   - User UI     │    │   - API Routing │    │   - Auth Service│
-│   - Shopping    │    │   - Load Balance│    │   - Product Svc │
-│   - Cart        │    │   - Security    │    │   - Order Svc   │
-└─────────────────┘    └─────────────────┘    │   - ML Security │
-                                              └─────────────────┘
+Frontend (React) → NGINX Gateway → Microservices
+                                    ├── Auth Service
+                                    ├── Product Service  
+                                    ├── Order Service
+                                    └── ML Security Service
 ```
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-- **Frontend**: React, Vite
-- **Backend**: Node.js, Express
-- **ML Security**: FastAPI, BERT Model
-- **Database**: MongoDB
-- **Cache**: Redis
-- **Container**: Docker, Docker Compose
-- **Gateway**: NGINX
+| Component | Technology |
+|-----------|------------|
+| Frontend | React, Vite |
+| Backend | Node.js, Express |
+| Security | FastAPI, BERT Model |
+| Database | MongoDB |
+| Cache | Redis |
+| Container | Docker, Docker Compose |
+| Gateway | NGINX |
 
-## 📁 Project Structure
+## Project Structure
 
 ```
-├── frontend/                 # React application
+├── frontend/              # React application
 ├── ecomm-backend/
-│   ├── auth-service/         # User authentication
-│   ├── product-service/      # Product management
-│   ├── order-service/        # Order processing
-│   ├── ml-service/           # ML security (BERT)
-│   ├── ml-filter-gateway/    # Threat filtering
-│   ├── api-gateway/          # NGINX configuration
-│   └── shared-utils/         # Common utilities
-└── docker-compose.yml        # Service orchestration
+│   ├── auth-service/      # Authentication & authorization
+│   ├── product-service/   # Product catalog management
+│   ├── order-service/     # Order processing & cart
+│   ├── ml-service/        # AI security (BERT)
+│   ├── ml-filter-gateway/ # Threat filtering middleware
+│   ├── api-gateway/       # NGINX configuration
+│   └── shared-utils/      # Common utilities
+└── docker-compose.yml     # Service orchestration
 ```
 
-## 🔒 Security Features
+## Security Highlights
 
-- **BERT-based Injection Detection**: AI-powered NoSQL injection prevention
-- **Real-time Threat Filtering**: Automatic malicious payload blocking
-- **JWT Authentication**: Secure user sessions
-- **Session Management**: Redis-backed session storage
+- **BERT Model Integration**: Advanced ML-based injection detection
+- **Real-time Filtering**: Automatic malicious payload identification
+- **JWT Authentication**: Secure session management
+- **Redis Sessions**: High-performance session storage
 
-## 👥 Contributors
+## Contributors
 
 - [@Sushant-Khot](https://github.com/Sushant-Khot)
-- [@Suhas-30](https://github.com/Suhas-30)
+- [@Sunil2713](https://github.com/Sunil2713) 
 - [@keerthanasoms](https://github.com/keerthanasoms)
 
-## 📬 Contact
+## Contact
 
-- **GitHub**: [@Sunil2713](https://github.com/Sunil2713)
+**GitHub**: [@Sushant-Khot](https://github.com/Sunil2713)
+
+---
+
+*Built with modern technologies and security-first approach*
 
