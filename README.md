@@ -80,5 +80,4 @@ Frontend (React) → NGINX Gateway → Microservices
 
 ---
 
-*Built with modern technologies and security-first approach*
 
