@@ -1,0 +1,99 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - mern-net
+
+  redis:
+    image: redis:7
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - mern-net
+
+  auth-service:
+    build: ./auth-service
+    container_name: auth-service
+    ports:
+      - "3001:3001"
+    networks:
+      - mern-net
+    volumes:
+      - ./shared-utils:/app/shared-utils
+      - ./auth-service/logs:/app/logs
+
+  product-service:
+    build: ./product-service
+    container_name: product-service
+    ports:
+      - "3002:3002"
+    networks:
+      - mern-net
+
+  order-service:
+    build: ./order-service
+    container_name: order-service
+    ports:
+      - "3003:3003"
+    networks:
+      - mern-net
+    volumes:
+      - ./shared-utils:/app/shared-utils
+      - ./order-service/logs:/app/logs
+
+  scone:
+    build: ./scone
+    image: registry.scontain.com/scone/apps/node:18
+    container_name: scone
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./scone/enclave_config.yaml:/etc/sgx/enclave_config.yaml
+      - ./shared-utils:/app/shared-utils
+    environment:
+      - SCONE_MODE=sim
+    networks:
+      - mern-net
+
+  api-gateway:
+    image: nginx
+    container_name: api-gateway
+    ports:
+      - "80:80"
+    volumes:
+      - ./api-gateway/default.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - mern-net
+
+  ml-service:
+    build: ./ml-service
+    container_name: ml-service
+    ports:
+      - "8000:8000"
+    networks:
+      - mern-net
+
+  ml-filter-gateway:
+    build: ./ml-filter-gateway
+    container_name: ml-filter-gateway
+    ports:
+      - "3100:3100"
+    networks:
+      - mern-net
+
+volumes:
+  mongo-data:
+  redis-data:
+
+networks:
+  mern-net:

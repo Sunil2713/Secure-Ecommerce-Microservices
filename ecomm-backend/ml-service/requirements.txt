@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+transformers
+gdown
+numpy<2
+protobuf
